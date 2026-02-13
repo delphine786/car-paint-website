@@ -16,11 +16,7 @@
       box-sizing: border-box;
       scroll-behavior: smooth;
     }
-.hero-logo {
-    width: 23rem;
-    height: auto;
-    margin-bottom: 20px;
-}
+
     body {
       font-family: 'Poppins', sans-serif;
       background: #111;
@@ -33,10 +29,7 @@
     /* ===== HERO ===== */
     .hero {
       height: 100vh;
-     
-      background:
-        linear-gradient(#000000, #000000),
-        url('') center/cover no-repeat;
+      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('images/hero-bg.jpg') center / cover no-repeat;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -46,11 +39,15 @@
       position: relative;
       overflow: hidden;
     }
-.hero-logo {
-  width: 26%;  /* adjust size */
-  height: auto;
-  margin-bottom: 20px;
-}
+
+    .hero-logo {
+      width: 250px;
+      max-width: 50%;
+      height: auto;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease forwards;
+    }
+
     .hero h1 {
       font-size: 3rem;
       margin-bottom: 15px;
@@ -103,16 +100,16 @@
       transform: translateY(-3px) scale(1.05);
       box-shadow: 0 15px 35px rgba(0,170,255,0.5);
     }
-.tertiary-btn {
-  background: linear-gradient(135deg, #ffaa00, #ff5500);
-  box-shadow: 0 10px 25px rgba(255, 170, 0, 0.3);
-}
 
-.tertiary-btn:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 15px 35px rgba(255,170,0,0.5);
-}
+    .tertiary-btn {
+      background: linear-gradient(135deg, #ffaa00, #ff5500);
+      box-shadow: 0 10px 25px rgba(255, 170, 0, 0.3);
+    }
 
+    .tertiary-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 15px 35px rgba(255,170,0,0.5);
+    }
 
     /* ===== SECTIONS ===== */
     section {
@@ -215,17 +212,37 @@
       margin: auto;
     }
 
-    .gallery-grid img {
+    /* ===== CLICK TO ZOOM ===== */
+    .gallery-grid a {
+      display: block;
+      position: relative;
+    }
+
+    .gallery-grid a img {
       width: 100%;
       border-radius: 12px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-      cursor: pointer;
+      cursor: zoom-in;
       transition: transform 0.4s ease, filter 0.4s ease;
     }
 
-    .gallery-grid img:hover {
-      transform: scale(1.05);
-      filter: brightness(1.2);
+    .gallery-grid a img:hover { transform: scale(1.05); filter: brightness(1.2); }
+
+    .gallery-grid a:target {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.9);
+      display: flex; justify-content: center; align-items: center;
+      z-index: 9999;
+    }
+
+    .gallery-grid a:target img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 0;
+      box-shadow: 0 0 50px rgba(0,0,0,0.8);
+      cursor: zoom-out;
     }
 
     /* ===== WHY US ===== */
@@ -278,17 +295,16 @@
 
     /* ===== ANIMATIONS ===== */
     @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     /* ===== RESPONSIVE ===== */
-    @media (max-width: 1024px) {
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-
+    @media (max-width: 1024px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 600px) {
       .hero h1 { font-size: 2rem; }
       .hero p { font-size: 1rem; }
@@ -311,7 +327,7 @@
       <a href="#contact" class="btn">Get a Free Quote</a>
     </div>
   </header>
-  
+
   <!-- SERVICES -->
   <section id="services" class="services">
     <h2>Our Services</h2>
@@ -343,37 +359,11 @@
   <section id="gallery" class="gallery">
     <h2>Our Work</h2>
     <div class="gallery-grid">
-      <img src="images/IMG1.jpg" alt="Car Paint Work 1">
-      <img src="images/IMG2.jpg" alt="Car Paint Work 2">
-      <img src="images/IMG3.jpg" alt="Car Paint Work 3">
-      <img src="images/IMG4.jpg" alt="Car Paint Work 4">
+      <a href="#img1"><img src="images/IMG1.jpg" alt="Car Paint Work 1" id="img1"></a>
+      <a href="#img2"><img src="images/IMG2.jpg" alt="Car Paint Work 2" id="img2"></a>
+      <a href="#img3"><img src="images/IMG3.jpg" alt="Car Paint Work 3" id="img3"></a>
+      <a href="#img4"><img src="images/IMG4.jpg" alt="Car Paint Work 4" id="img4"></a>
     </div>
   </section>
 
-  <!-- WHY US -->
-  <section class="why">
-    <h2>Why Choose Us</h2>
-    <ul>
-      <li>Affordable pricing</li>
-      <li>Premium quality materials</li>
-      <li>Attention to detail</li>
-      <li>Fast turnaround time</li>
-    </ul>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <p>📞 +230 54894380</p>
-    <p>📍 Mauritius</p>
-    <a class="btn" href="https://wa.me/23057023273">WhatsApp Us</a>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    © 2026 Car Paint Studio — All rights reserved
-  </footer>
-
-</body>
-</html>
-
+  <!-

@@ -290,7 +290,20 @@
       .gallery-grid { grid-template-columns: 1fr; }
       .cards { flex-direction: column; align-items: center; }
     }
+.social {
+  background: #181818;
+}
 
+.social .btn {
+  margin: 10px 5px;
+}
+.video {
+  background: #111;
+  padding-bottom: 120px;
+}
+.video h2 {
+  margin-bottom: 40px;
+}
   </style>
 </head>
 <body>
@@ -344,7 +357,15 @@
       <img src="images/IMG4.jpg" onclick="viewFullscreenImage('images/IMG4.jpg')" alt="Car Paint Work 4">
     </div>
   </section>
-
+<section id="video" class="video">
+  <h2>Watch Our Work</h2>
+  <div style="max-width:800px; margin: auto;">
+    <video controls width="100%" style="border-radius:12px; box-shadow: 0 10px 25px rgba(0,0,0,0.5);">
+      <source src="videos/our_work.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
   <!-- WHY US -->
   <section class="why">
     <h2>Why Choose Us</h2>
@@ -355,7 +376,13 @@
       <li>Fast turnaround time</li>
     </ul>
   </section>
-
+<section id="social" class="social">
+  <h2>Follow Us</h2>
+  <div class="hero-buttons">
+    <a href="https://facebook.com" target="_blank" class="btn secondary-btn">Facebook</a>
+    <a href="https://tiktok.com" target="_blank" class="btn">TikTok</a>
+  </div>
+</section>
   <!-- CONTACT -->
   <section id="contact" class="contact">
     <h2>Contact Us</h2>
@@ -371,6 +398,7 @@
 
 </body>
 </html>
+
 
 
 

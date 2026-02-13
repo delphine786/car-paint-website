@@ -304,6 +304,34 @@
 .video h2 {
   margin-bottom: 40px;
 }
+    .navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 15px 10px;
+  z-index: 1000;
+}
+
+.navbar a {
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #ff2a2a;
+}
+
+/* push hero down so it doesn’t hide behind navbar */
+.hero {
+  padding-top: 80px;
+}
   </style>
 </head>
 <body>
@@ -406,6 +434,7 @@
 
 </body>
 </html>
+
 
 
 
